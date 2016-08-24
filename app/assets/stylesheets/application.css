@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+.colorchange{
+    background:white;
+}
+
+.colorchange:hover{
+    background:white;
+}
+
+.footercontainer{
+    padding-bottom:150px;
+    
+}
