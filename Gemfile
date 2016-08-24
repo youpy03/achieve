@@ -49,3 +49,9 @@ gem 'rails_12factor', group: :production
 gem 'devise'
 gem 'devise-i18n'
 gem 'faker'
+
+group :development do
+  gem 'letter_opener'
+  gem 'letter_opener_web'
+end
+

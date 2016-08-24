@@ -14,7 +14,12 @@ Rails.application.routes.draw do
     end
     
         root 'top#index'
-        
+
+      if Rails.env.development?
+          mount LetterOpenerWeb::Engine, at: "/letter_opener"
+      end
+
+
     # get 'contacts' => 'contacts#create'
   
   # The priority is based upon order of creation: first created -> highest priority.
