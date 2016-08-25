@@ -17,9 +17,9 @@
 end
 
 
-100.times do |n|
-	rand_id = 0
-	while User.find_by_id(rand_id) != nil do
+10.times do |n|
+	rand_id = 1
+	while User.find(rand_id) != nil do
 		rand_id = rand(1..1000)
 	end	
 	title = "heroku#{n+1}"
