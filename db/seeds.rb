@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
- 10.times do |n|
+100.times do |n|
   email = Faker::Internet.email
   name = Faker::Name.name
   password = "password"
@@ -18,7 +18,7 @@
  end
 
 
-10.times do |n|
+100.times do |n|
 	rand_id = 1
 	until User.find_by_id(rand_id) != nil do
 		rand_id = rand(1..2000)
