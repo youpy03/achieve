@@ -78,7 +78,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
 
-  config.action_mailer.default_url_options = { host: 'still-cliffs-65158.herokuup@com' }
+  config.action_mailer.default_url_options = { host: 'still-cliffs-65158.herokuapp.com' }
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings =
 {
