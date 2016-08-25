@@ -18,9 +18,9 @@
 
 
 10.times do |n|
-	rand_id = 0
+	rand_id = 214
 	while User.find(rand_id) != nil do
-		rand_id = rand(1..1500)
+		rand_id = rand(214..1500)
 	end	
 	title = "heroku#{n+1}"
 	content = "ないよう#{n+1}"
