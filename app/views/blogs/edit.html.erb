@@ -2,15 +2,15 @@
   <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
     <h2>ブログを編集する</h2>
     <div class="field">
-      
+
 
     <%= form_for(@blog) do |f| %>
       <%= f.label :user_id %><br>
-　    ユーザーIDを選んでください
+    ユーザーIDを選んでください
       <%= f.collection_select :user_id, User.all, :id, :id%>
     </div>
     <% end %>
-    
+
     <%= render 'form' %>
   </div>
 </div>
