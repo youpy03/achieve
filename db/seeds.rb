@@ -15,3 +15,24 @@
                name: name,
                )
 end
+
+
+100.times do |n|
+	rand_id = 0
+	while User.find_by_id(rand_id) != nil do
+		rand_id = rand(1..100)
+	end	
+	title = "heroku#{n+1}"
+	content = "ないよう#{n+1}"
+	Blog.create!(title: title, content: content, user_id: rand_id)	
+end
+
+# num = 1
+
+# while num <= 100
+#   Blog.create(
+#     title: "herokuheroku",
+#     user_id: num
+#   )
+#   num = num + 1
+# end
