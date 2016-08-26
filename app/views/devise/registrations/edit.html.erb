@@ -5,7 +5,7 @@
     <h2>マイページ</h2>
     <h2><%#= resource_name.to_s.humanize %></h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+  <%= f.error_messages! %>
 
 <div class="field">
     <%= f.label :メールアドレス %><br />
@@ -16,38 +16,54 @@
     <%= f.text_field :name, class: "form-control" %>
   </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-  
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+
+
+<!-- Dive14記述 -->
+<% if @user.provider.blank? %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label :password %> <i></i><br />
+          <%= f.password_field :password, autocomplete: "off", class: "form-control"  %>
+          <% if @minimum_password_length %>
+            <br />
+            <em><%= @minimum_password_length %> 文字以上</em>
+          <% end %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :current_password %> <i></i><br />
+          <%= f.password_field :current_password, autocomplete: "off", class: "form-control"%>
+        </div>
+<% end %>
+<!-- Dive14記述 -->
+<br>
+<br>
+
+<!-- dive14 -->
 
   <div class="field">
-  
-    <%= f.label :password %> <i></i><br />
-    <%= f.password_field :password, autocomplete: "off", class: "form-control"  %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> 文字以上</em>
-    <% end %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i></i><br />
-    <%= f.password_field :current_password, autocomplete: "off", class: "form-control"%>
+    <%= profile_img(@user) if profile_img(@user) %>
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" ,class: 'btn btn-primary btn-block'%>
+    <%= f.submit "更新", class: "btn btn-primary btn-block" %>
   </div>
-<% end %>
+<!-- dive14 -->
+
+
+ <% end %>
+
+
 
 
 <h3>削除ページ</h3>
