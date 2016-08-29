@@ -40,8 +40,12 @@ class BlogsController < ApplicationController
   end
 
   def destroy
+  if current_user.user_id == blog.user_id
     @blog.destroy
     redirect_to blogs_path, notice: "ブログを削除しました！"
+  else
+    redirect_to blogs_path
+  end
   end
 
   def confirm

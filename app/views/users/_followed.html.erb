@@ -1,0 +1,11 @@
+<h4><%= user.name %>がフォローしている人</h4>
+<ul>
+  <% user.followed_users.each do |followed_user| %>
+    <li>
+      <i class ="profile-radius"><%= profile_img(followed_user) %></i>
+      @<%= followed_user.name %>
+    </li>
+  <% end %>
+</ul>
+<br>
+<br>

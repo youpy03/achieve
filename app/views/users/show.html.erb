@@ -1,0 +1,11 @@
+<h1>ユーザー詳細ページ</h1>
+
+
+
+    <div id="followings_area">
+      <%= render partial: 'followed', locals: { user: @user } %>
+    </div>
+
+    <div id="followers_area">
+      <%= render partial: 'follower', locals: { user: @user } %>
+    </div>
