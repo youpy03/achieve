@@ -2,8 +2,8 @@
   <div class="wrapper col-md-8 col-md-offset-2 col-sm-10 text-center">
     <p><%= notice %></p>
     <h1>ブログ一覧</h1>
-      <%= link_to "Tweetする", new_blog_path, class: 'btn btn-default' %>
-    
+      <%= link_to "ブログを作成する", new_blog_path, class: 'btn btn-default' %>
+
 
     <% @blogs.each do |blog| %>
     <div class="row">
@@ -17,7 +17,9 @@
         </div>
     </div>
     <div class="blogtitle">
+    <%= link_to blog_path(blog) do %>
       <h4><strong><%= blog.title %></strong></h4>
+    <% end %>
       <p><%= blog.content %></p>
       <p>#ユーザーID : <%= blog.user_id %></p>
       <p>#YOU: <%= blog.user.name %></p>

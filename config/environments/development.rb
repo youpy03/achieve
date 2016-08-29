@@ -12,8 +12,8 @@ Rails.application.configure do
   # Show full error reports and disable caching.
   #producitonのエラー画面を表示させるためには、
   #developmentでもproductionのエラー画面を表示させる必要があります。
-  config.consider_all_requests_local       = false
-  
+  config.consider_all_requests_local       = true
+
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
@@ -48,6 +48,6 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.delivery_method = :letter_opener_web
   #dive12記述*bettererrorsの追加
-  BetterErrors::Middleware.allow_ip! "0.0.0.0/0"  
+  BetterErrors::Middleware.allow_ip! "0.0.0.0/0"
 
 end

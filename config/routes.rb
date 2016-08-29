@@ -1,23 +1,23 @@
 Rails.application.routes.draw do
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers:{
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
 
-    resources :blogs, only: [:index, :new, :create, :edit, :update, :destroy] do
+    resources :blogs do
+        resources :comments
         collection do
             post :confirm
         end
     end
 
-    resources :contacts, only: [:new, :create] do 
+    resources :contacts, only: [:new, :create] do
         collection do
             post :confirm
         end
     end
-    
+
         root 'top#index'
 
       if Rails.env.development?
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
 
     # get 'contacts' => 'contacts#create'
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
