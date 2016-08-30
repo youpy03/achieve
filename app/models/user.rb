@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
   has_many :followers, through: :reverse_relationships, source: :follower
+  #dive17追記
+  has_many :tasks, dependent: :destroy
 
   #dive14記述
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)

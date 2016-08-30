@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tasks
   get 'relationships/create'
 
   get 'relationships/destroy'
@@ -22,7 +23,10 @@ Rails.application.routes.draw do
         end
     end
     #dive16
-    resources :users, only: [:index, :show]
+    resources :users, only: [:index, :show, :edit, :update] do
+      #dive17追加記述
+      resources :tasks
+    end
     resources :relationships, only: [:create, :destroy]
 
         root 'top#index'
